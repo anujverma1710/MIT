@@ -40,7 +40,9 @@ func mapF(filename string, contents string) []mapreduce.KeyValue {
 //
 func reduceF(key string, values []string) string {
 	// Your code here (Part II).
-
+	if len(key) == 0 {
+		return ""
+	}
 	v := strconv.Itoa(len(values))
 	if len(values) == 8192 {
 		fmt.Printf("v of 8192, string is: %v, length is %v \n", key, len(key))
