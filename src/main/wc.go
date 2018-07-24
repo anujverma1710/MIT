@@ -15,6 +15,11 @@ import (
 //
 func mapF(filename string, contents string) []mapreduce.KeyValue {
 	// Your code here (Part II).
+	kvs := make([]mapreduce.KeyValue, 1024)
+	for _, v := range strings.Split(contents) {
+		kvs = append(kvs, KeyValue{v, 1})
+	}
+	return kvs
 }
 
 //
